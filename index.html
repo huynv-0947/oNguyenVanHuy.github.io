@@ -4,14 +4,14 @@
 <video id="js_video_scanner"></video>
 <script src="https://huynv-0947.github.io/oNguyenVanHuy.github.io/qr-scanner.js"></script>
 <script>
-  function setResult(result) {
-    debugger;
-    console.log('RESULT DATA ' + result.data);
+  function processResult(result) {
+    qrScanner.stop();
+    console.log('RESULT ' + result);
   };
 
   window.qrScanner = new QrScanner(
     document.getElementById('js_video_scanner'),
-    result => setResult(result),
+    result => processResult(result),
     {
       onDecodeError: error => {
         console.log('onDecodeError ' + error);
@@ -21,10 +21,9 @@
     }
   );
   qrScanner.start().then(() => {
-    QrScanner.listCameras(true).then(cameras => cameras.forEach(camera => {
-      debugger;
-    }));
-  });
 
-  QrScanner.hasCamera().then(hasCamera => console.log('HAS CAMERA ' + hasCamera));
+  }).catch(() => {
+    debugger;
+    
+  });
 </script>
