@@ -13,17 +13,14 @@
     document.getElementById('js_video_scanner'),
     result => processResult(result),
     {
-      onDecodeError: error => {
-        console.log('onDecodeError ' + error);
-      },
       highlightScanRegion: true,
       highlightCodeOutline: true,
     }
   );
   qrScanner.start().then(() => {
 
-  }).catch(() => {
+  }).catch((error) => {
     debugger;
-    
+
   });
 </script>
