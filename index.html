@@ -1,3 +1,26 @@
 <div><h1 style="margin-left: 45%;">Hello, world!</h1>
 </div><hr>
 
+<video id="js_video_scanner"></video>
+<script src="https://huynv-0947.github.io/oNguyenVanHuy.github.io/qr-scanner.js"></script>
+<script>
+  const qrScanner = new QrScanner(
+    document.getElementById('js_video_scanner'),
+    result => console.log('DECODED: ' + result),
+    {
+      returnDetailedScanResult: true
+    }
+    // onDecodeError => (err) => {
+    //   debugger;
+    // },
+    // returnDetailedScanResult: true
+  );
+  QrScanner.listCameras(true)
+           .then((result) => {
+             debugger;
+           })
+           .catch((error) => {
+             debugger;
+           });
+  // qrScanner.start();
+</script>
